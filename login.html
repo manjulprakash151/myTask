@@ -1,0 +1,179 @@
+<html>
+ <head>
+   <title> login </title>
+ </head>
+   <style>
+      #container
+	  {
+	    border:2px solid red;
+		height:480px;
+		width:340px;
+		margin:40px;
+		background-color:black;
+		border-radius:10px;
+	  }
+	  body
+	  {
+	   background-size:cover;
+	   background-attachment:fixed;
+	   background-position:fixed;
+	  }
+	  table
+	  {
+	    
+	  }
+	  
+	  input[type="text"],[type="password"]
+	  {
+	   height:30px;
+	   width:240px;
+	   border-bottom:2px solid red;
+	   margin-bottom:15px;
+	   background-color:black;
+	   color:white;
+	  }
+	  input[type="button"]
+	  {
+	   height:28px;
+	   width:200px;
+	   margin-left:18px;
+	   background-color:red;
+	   font-weight:bolder;
+	   font-size:18px;
+	  }
+	  input
+	  {
+	   border:none;
+	   outline:none;
+	  }
+	  img
+	  {
+	   height:80px;
+	   width:80px;
+	   border-radius:50%;
+	   margin-top:-39px;
+	   }
+	  td
+	  {
+	   color:white;
+	   font-weight:bolder;
+	  }
+	  
+	  h2{color:white;}
+      #capcha
+	  {
+	   height:30px;
+	   width:100px;
+	   margin-left:48px;
+	   text-size:35px;
+	   letter-spacing:10px;
+	   text-indent:7px;
+	   margin-top:-5px;
+	   background-color:pink;
+	   color:black;
+	   font-weight:bold;
+	  }
+	  #capcha1
+	  {
+	   height:30px;
+	   width:100px;
+	   margin-left:48px;
+	   text-size:35px;
+	   letter-spacing:10px;
+	   text-indent:7px;
+	   margin-top:-5px;
+	   background-color:pink;
+	   color:black;
+	   font-weight:bold;
+	  }
+	  #refress
+	  {
+	   height:25px;
+	   width:25px;
+	   margin-top:1px;
+	   position:fixed; 
+	  }
+	  span{color:red;}
+   </style>
+   <script>
+
+        function start()
+         {
+		  document.getElementById("name").focus();
+		  var b=document.getElementById("capcha");
+		  var a=Math.random();
+		  a=parseInt(a*100000);
+		   b.value=a;
+		  }	
+         function change()
+           {
+		   var b=document.getElementById("capcha");
+		  var a=Math.random();
+		  a=parseInt(a*100000);
+		   b.value=a;
+           }		   
+		   
+		   function match()
+		   {
+		     var a=document.getElementById("name");
+			 var b=document.getElementById("pass");
+			 var d=document.getElementById("s1");
+			 var e=document.getElementById("s2");
+			
+			 var c=Math.random();
+			 c=parseInt(c*100000);
+			 if(a.value=="")
+			  {
+			  d.innerHTML="**";
+			  a.focus();
+			  }
+			  else if(b.value=="")
+			  {
+			  d.innerHTML="";
+              e.innerHTML="**";
+			  b.focus();
+			  }
+			  else if(capcha1.value=="")
+			  {
+			     e.innerHTML="";
+				 d.innerHTML="";
+			     s3.innerHTML="**";
+			    capcha1.focus();
+			  }
+              else if(capcha.value==capcha1.value)
+			  {
+               alert("successfully loged in");
+                a.value="";
+                b.value="";
+				s3.innerHTML="";
+				capcha.value=c;
+                capcha1.value="";				
+			  }
+			  else
+			  {
+			  alert("not match enter again");
+			  capcha.value=c;
+			  capcha1.focus();
+			  }
+		   }
+   </script>
+  </head>
+ <body background="img10.jpg" onLoad="start();">
+ <center>
+    <div id="container">
+	<img src="logo.png">
+	<h2>LOGIN HERE</H2>
+	  <table align="center">
+	     <tr><td>USERNAME</TD></TR>
+	     <tr><td><input type="text" placeholder="Enter your email or number" id="name" value=""><span id="s1"></span></td></tr>
+		 	     <tr><td>PASSWORD</TD></TR>
+		 <tr><td><input type="password" placeholder="Enter password" value="" id="pass"><span id="s2"></span></td></tr>
+		 <tr><td><input type="text" id="capcha" maxlength="5" value=""><img src="refress.jpg" id="refress" onClick="change()"></td></tr>
+		 <tr><td><input type="text" id="capcha1" maxlength="5"><span><b>enter capcha</b></span><span id="s3"></span></td></tr>
+	     <tr><td><input type="button" value="Login" onClick="match()"></td></tr>
+	  </table>
+	  <a href="#"> <p align="left" style="text-indent:25px;"><b><font color="white">Forget password?</font></b></p></a>
+	  <a href="#"> <p align="left" style="text-indent:25px; margin-top:-10px;"><b><font color="white">Don't have an account</font></b></p></a>
+    </div></center>
+ </body>
+</html>
